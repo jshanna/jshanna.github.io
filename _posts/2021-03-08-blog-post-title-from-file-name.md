@@ -32,6 +32,6 @@ ForEach ($thing in $things) {
 ```
 #### Bash Test
 
-```bash
+```shell
  ls -l
  ```
