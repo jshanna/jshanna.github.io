@@ -1,3 +1,7 @@
+## Welcome
+
+This is a blog about my personal technology projects. These projects are typically solutions to problems or annoyances I have encountered in my life.
+
 ### Technobilly
 */ˌtɛknoʊˈbɪli/*
 **noun** (informal)
