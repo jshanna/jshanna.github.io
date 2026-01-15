@@ -4,6 +4,8 @@ This is a blog about my personal technology projects. These projects are typical
 
 ---
 
+![alt text](images/technobilly-infographic.jpg "Technobilly Infographic")
+
 ### Technobilly
 */ˌtɛknoʊˈbɪli/*
 **noun** (informal)
