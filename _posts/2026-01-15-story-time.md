@@ -30,6 +30,8 @@ Here is what Claude and I created:
 
 ### StorAI-Booker
 
+[Project Repository](https://github.com/jshanna/storai-booker)
+
 ![alt text](https://jshanna.github.io/images/storytime/storaibooker-01.png "StorAi-Booker landing page")
 
 Here we see the landing page, it’s not too exciting, but lets go ahead and generate a story.
@@ -95,5 +97,3 @@ So what did I learn through this project? A lot! Primarily I realized that the w
 Is this a finished project? Not really, but it’s at a good place for my family to be able to start generating stories. Of course my daughter has moved on to a book series about an owl that hates squirrels so she hasn’t been asking to make her own stories lately, but we’re future proofed. There’s a ton of stuff I didn’t cover like content restrictions, sharing (multiple users are functioning, and you can share stories into a “public” library), and a few other settings.
 
 Thanks for reading, and please don’t hesitate to let me know what you think!
-
-[Project Repository](https://github.com/jshanna/storai-booker)
