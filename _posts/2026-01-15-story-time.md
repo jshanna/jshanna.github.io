@@ -88,7 +88,7 @@ Here we see page 2, I can’t say I’ve ever sat in an office chair like that, 
 
 What if you want to take a bunch of the content you’ve generated off-grid. You can export your stories to several formats and load them on a tablet or other device and take them with you.
 
-THE END
+### THE END
 
 So what did I learn through this project? A lot! Primarily I realized that the way I interact with an LLM while working on projects needs to be well considered and clear. The more complete the context I can provide the more likely I am to be pleased with the output from the LLM. 
 
