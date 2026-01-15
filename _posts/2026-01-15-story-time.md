@@ -18,10 +18,7 @@ After a few abortive attempts to get things working I took a beat to think about
 
 What I’m really doing here is building the scaffolding for the overall project. And I can have Claude start enhancing that scaffolding. So what is my first prompt for Claude?
 
-```
-Look at @specs/description.txt use the information there to write a full application spec, ask questions instead of deciding 
-for yourself when there’s a decision to make regarding architecture, code language, or any other substantive decisions
-```
+> Look at @specs/description.txt use the information there to write a full application spec, ask questions instead of deciding for yourself when there’s a decision to make regarding architecture, code language, or any other substantive decisions
 
 Out of this we now have `specs/application-spec.md` which took Claude about 30 seconds to write, and would have been a few hour task for my slow meat brain. My job here now becomes reviewing the application spec and making sure it aligns with the description I provided. Validation of the approach of writing a description and then working with Claude occured here. There is a revision history at the bottom of application-spec.md there’s only 2, and the one revision was to add Comic Book formatted generation because I didn’t want my Son who is a few years older to be left out. 
 
