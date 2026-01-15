@@ -19,7 +19,8 @@ After a few abortive attempts to get things working I took a beat to think about
 What I’m really doing here is building the scaffolding for the overall project. And I can have Claude start enhancing that scaffolding. So what is my first prompt for Claude?
 
 ```
-Look at @specs/description.txt use the information there to write a full application spec, ask questions instead of deciding for yourself when there’s a decision to make regarding architecture, code language, or any other substantive decisions
+Look at @specs/description.txt use the information there to write a full application spec, ask questions instead of deciding 
+for yourself when there’s a decision to make regarding architecture, code language, or any other substantive decisions
 ```
 
 Out of this we now have `specs/application-spec.md` which took Claude about 30 seconds to write, and would have been a few hour task for my slow meat brain. My job here now becomes reviewing the application spec and making sure it aligns with the description I provided. Validation of the approach of writing a description and then working with Claude occured here. There is a revision history at the bottom of application-spec.md there’s only 2, and the one revision was to add Comic Book formatted generation because I didn’t want my Son who is a few years older to be left out. 
@@ -32,61 +33,61 @@ Here is what Claude and I created:
 
 ### StorAI-Booker
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-01.jpg "StorAi-Booker landing page")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-01.png "StorAi-Booker landing page")
 
 Here we see the landing page, it’s not too exciting, but lets go ahead and generate a story.
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-02.jpg "Story generation template view")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-02.png "Story generation template view")
 
 Here we can select a template with examples filled in here’s a generation of “The Brave Little Dragon” template [Ember’s Brave Sky Journey](https://jshanna.github.io/artifacts/Ember-s-Brave-Sky-Journey.pdf). But let’s make something bespoke.
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-03.jpg "Story topic")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-03.png "Story topic")
 
 We’ll make the target audience age 10, and why not a self-referential topic?
 
 What we’re doing here is starting to build a prompt, each of these fields end up feeding into a Langchain flow that uses several agents to build a coherent storybook or comic.
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-04.jpg "Story setting")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-04.png "Story setting")
 
 We’ll give a loose description of my home office in the Setting, leave the Format option on Storybook, and use the default 10 pages. The number of pages impacts the generation time as each page goes through several agents for artifact generation -> review -> acceptance/rejection -> regeneration -> repeat as needed, with a configurable limit on the number of times an artifact can be rejected and regenerated.
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-05.jpg "Character settings")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-05.png "Character settings")
 
 We provide some characters, John is supposed to be me, Kate and Monty are not my kids names, but they can fill in for my kids. The descriptions are fairly vague but between the name, age, and description of hair styles we should get what we’re looking for.
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-06.jpg "Predefined illustration styles")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-06.png "Predefined illustration styles")
 
 There are a number of pre-defined styles, these don’t really have anything behind them (a potential improvement) they’re inserted into the prompting for image generation.
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-07.jpg "Custom illustration style")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-07.png "Custom illustration style")
 
 Because it is just a straight field -> prompt input we can easily inject a custom style. “Zany Anime” sounds fun to me, and is often what I ask Gemini to do to pictures of family and friends. 
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-08.jpg "Story generating...")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-08.png "Story generating...")
 
 Once we click Generate Story we’re taken to the Library pane where we can see any stories that are being generated, and our already generated stories.
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-09.jpg "Story dot menu")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-09.png "Story dot menu")
 
 One of the things I struggled with initially was getting the agent flow to generate consistent characters. There’s a story building flow that works in a pretty typical outline -> expand -> review -> refine process, but not so much for the illustrations. Initially there was nothing to help character consistency across pages except what was in the prompt for that illustration. I was talking to a friend who develops media generation/editing agent flows for his day job and he suggested injecting a step that creates a character sheet for each character, and voila consistent illustrations!
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-10.jpg "Character sheets")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-10.png "Character sheets")
 
 Clicking on View Artifacts we can access those character sheets, the characters in the generated storybook should be consistent with what we see here… why are “my” arms all splotchy? Maybe there’s a narrative reason for that?
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-11.jpg "Page text and image generation prompts")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-11.png "Page text and image generation prompts")
 
 And here we can see the page illustration prompts with (SPOILERS!) the text for each page. I had to do some log diving to get this information while struggling with character consistency, and I thought it would be interesting to make these prompts accessible so I could try them out in other image generation systems.
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-12.jpg "Generated story cover page")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-12.png "Generated story cover page")
 
 When we click on Read Story a reader view opens, and we can read the story. On the cover we can see the character prompts worked pretty well, while not exactly what my kids look like they would probably recognize themselves especially if I used their real names in the text.
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-13.jpg "Generated story page")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-13.png "Generated story page")
 
 Here we see page 2, I can’t say I’ve ever sat in an office chair like that, but otherwise it looks pretty good. I’m not going to screenshot every page, you can find a PDF export of this story here: [Dad's Digital Story Dreams](https://jshanna.github.io/artifacts/Dads-Digital-Story-Dreams.pdf). Speaking of…
 
-![alt text](https://jshanna.github.io/images/storytime/storaibooker-14.jpg "Generated story export options")
+![alt text](https://jshanna.github.io/images/storytime/storaibooker-14.png "Generated story export options")
 
 What if you want to take a bunch of the content you’ve generated off-grid. You can export your stories to several formats and load them on a tablet or other device and take them with you.
 
